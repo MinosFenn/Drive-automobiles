@@ -1,11 +1,17 @@
 import React from 'react'
+import Hero from '../components/Hero'
+import Banner from '../components/Banner'
 
-function Cars() {
+const Cars = () => {
     return (
-        <div>
-            hello from cars page
-        </div>
-    )
+        <Hero hero="carsHero">
+        <Banner title="Collection" subtitle="Retrouvez toute notre collection">
+
+        </Banner>
+</Hero>        
+)
 }
 
 export default Cars
+
+

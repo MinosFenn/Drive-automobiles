@@ -50,7 +50,7 @@ export default class Navbar extends Component {
                 <Link to="/about"> A propos </Link>
               </li>
               <li>
-                <Link to="/contact"> contact </Link>
+                <Link to="/contact"> Contact </Link>
               </li>
             </ul>{" "}
         </div>{" "}

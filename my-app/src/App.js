@@ -24,10 +24,10 @@ function App() {
   <Route exact path="/Cars/:slug" component={SingleCar} />
   <Route exact path="/Events" component={Events} />
   <Route exact path="/Events/:slug" component={SingleEvent} />
-  <Route component={Error} />
   <Route exact path="/About" component={About} />
   <Route exact path="/Services" component={Services} />
   <Route exact path="/Contact" component={Contact} />
+  <Route component={Error} />
   </Switch>
   <Footer />
 </>
