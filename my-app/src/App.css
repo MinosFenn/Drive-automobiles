@@ -10,6 +10,7 @@
   --mainBlack: #222;
   --mainGrey: #ececec;
   --darkGrey: #e5e5e5;
+  --hardGrey: 	#A9A9A9;
   --mainTransition: all 0.3s linear;
   --mainSpacing: 3px;
   --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
@@ -302,11 +303,11 @@ h6 {
 /* end pf featured rooms */
 /* room */
 .room {
-  box-shadow: var(--lightShadow);
+  /* box-shadow: var(--lightShadow); */
   transition: var(--mainTransition);
 }
 .room:hover {
-  box-shadow: var(--darkShadow);
+  box-shadow: var(--lightShadow);
 }
 
 .img-container {
@@ -317,21 +318,55 @@ h6 {
   display: block;
   transition: var(--mainTransition);
 }
-.price-top {
+.name-top {
   position: absolute;
+width: 100%;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background:  var(--primaryColor);
   color: var(--mainWhite);
-  padding: 0.3rem 0.6rem 0.5rem;
+  padding: 0.5rem 0.3rem 0.5rem 0.3rem;
   border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+
+  font-size: 1.1rem;
+  text-align: center;
+  transition: var(--mainTransition);
+}
+.km-bottom {
+  float: left;
+  width: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgb(229,229,229, 0.8)
+  ;
+  color: var(--hardGrey);
+  padding: 0.3rem 0.6rem 0.5rem;
+  /* border-bottom-right-radius: 1rem; */
+  border-right: 2px solid var(--hardGrey);
   font-size: 0.5rem;
   text-align: center;
   transition: var(--mainTransition);
 }
-.price-top h6 {
+
+.price-bottom {
+  position: absolute;
+  float: left;
+  width: 50%;
+  bottom: 0;
+  right: 0;
+  background:  rgb(229,229,229, 0.8);
+  color: var(--hardGrey);
+  padding: 0.3rem 0.6rem 0.5rem;
+  /* border-bottom-right-radius: 1rem; */
+  font-size: 0.5rem;
+  text-align: center;
+  transition: var(--mainTransition);
+}
+.name-top, .price-bottom, .km-bottom, h6 {
   margin-bottom: 0;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   font-weight: 300;
   letter-spacing: var(--mainSpacing);
 }
