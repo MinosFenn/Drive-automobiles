@@ -39,9 +39,9 @@ export default [
       boite: "Manuelle",
       type: "Coupé",
       puissance: "430CH",
-      Moteur: "6 cylindres à plat",
-      cylindrée: "3.6L",
-      couleur: "Noir Obsidian",
+      moteur: "6 cylindres à plat",
+      cylindré: "3.6L",
+      couleur: "rouge",
       place: 5,
       featured: false,
       description:
@@ -92,8 +92,8 @@ export default [
       id: "1"
     },
     fields: {
-      nom: "Porsche 911 GT",
-      slug: "porsche-911-gt",
+      nom: "Porsche 91 GT",
+      slug: "porsche-91-gt",
       marque: "Porsche",
       modèle: "911 GT",
       prix: 999999,
@@ -102,7 +102,7 @@ export default [
       boite: "Manuel",
       type: "Coupé",
       puissance: "430CH",
-      Moteur: "6 cylindres à plat",
+      moteur: "6 cylindres à plat",
       cylindré: "3.6L",
       couleur: "Noir Obsidian",
       place: 5,
@@ -167,11 +167,11 @@ export default [
       puissance: "430CH",
       moteur: "6 cylindres à plat",
       cylindré: "3.6L",
-      couleur: "Noir Obsidian",
+      couleur: "Rose",
       place: 5,
       featured: true,
       description:
-        "Street art edison bulb gluten-free, tofu try-hard lumbersexual brooklyn tattooed pickled chambray. Actually humblebrag next level, deep v art party wolf tofu direct trade readymade sustainable hell of banjo. Organic authentic subway tile cliche palo santo, street art XOXO dreamcatcher retro sriracha portland air plant kitsch stumptown. Austin small batch squid gastropub. Pabst pug tumblr gochujang offal retro cloud bread bushwick semiotics before they sold out sartorial literally mlkshk. Vaporware hashtag vice, sartorial before they sold out pok pok health goth trust fund cray.",
+        "description1",
       extras: [
         "Plush pillows and breathable bed linens",
         "Soft, oversized bath towels",
@@ -218,8 +218,8 @@ export default [
       id: "3"
     },
     fields: {
-      nom: "Porsche 911 GT",
-      slug: "porsche-911-gt",
+      nom: "Porsche 9111 GT",
+      slug: "porsche-9111-gt",
       marque: "Porsche",
       modèle: "911 GT",
       prix: 999999,
@@ -230,7 +230,7 @@ export default [
       puissance: "430CH",
       moteur: "6 cylindres à plat",
       cylindré: "3.6L",
-      couleur: "Noir Obsidian",
+      couleur: "bleu",
       place: 5,
       featured: true,
       description:

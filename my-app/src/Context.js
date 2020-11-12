@@ -4,7 +4,7 @@ const CarContext = React.createContext();
 // <CarContext.Provider value={'hello}
 class CarProvider extends Component {
     state={
-        Cars: [],
+        cars: [],
         sortedCars:[],
         featuredCars:[],
         loading:true
@@ -15,7 +15,7 @@ class CarProvider extends Component {
    // TODO:a revoir
     componentDidMount(){
         let cars = this.formatData(items);
-        console.log(cars)
+        // console.log(cars)
 let featuredCars = cars.filter(car => car.featured === true);
 this.setState({
     cars,
@@ -31,11 +31,19 @@ this.setState({
             let car = {...item.fields, images, id};
             return car;
         });
-        return tempItems
+        return tempItems;
     }
+    // create slug according to car
+    getCar = (slug) => {
+let tempCars = [...this.state.cars];
+const car = tempCars.find((car) => car.slug === slug);
+return car;
+    };
     render() {
         return (
-        <CarContext.Provider value={{...this.state}}>
+        <CarContext.Provider value={{
+            ...this.state,
+        getCar: this.getCar}}>
 {this.props.children}
         </CarContext.Provider>
         );
@@ -43,5 +51,13 @@ this.setState({
 }
 
 const CarConsumer = CarContext.Consumer
+// Carcontainer 
+export function withCarConsumer(Component) {
+    return function ConsumerWrapper(props){
+        return <CarConsumer>
+            {value => <Component {...props} context={value}/>}
+        </CarConsumer>
+    }
 
+}
 export {CarProvider, CarConsumer, CarContext}

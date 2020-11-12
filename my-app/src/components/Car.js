@@ -1,11 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import defaultImg from "../images/test1.jpg";
- 
-export default function Car({ car }) {
-    console.log(car)
+ import PropTypes from "prop-types"; 
 
-    const{nom,slug,kilométrage,images,prix} = car;
+export default function Car({ car }) {
+    // console.log(car)
+
+    const{nom,slug,images,prix,kilométrage} = car;
 
     return (<article className="room">
     <div className="img-container">
@@ -21,8 +22,22 @@ export default function Car({ car }) {
       <div className="price-bottom">
       <h6>{prix} €</h6>
 </div>
-      
+      <Link to={`/cars/${slug}`} className="btn-primary room-link">
+        Détails
+      </Link>
       </div> 
+      {/* <p className="room-info"></p> */}
   </article>)
     
+}
+//verify informations validity
+Car.propTypes = {
+  car:PropTypes.shape({
+    nom:PropTypes.string.isRequired,
+    slug:PropTypes.string.isRequired,
+    images:PropTypes.arrayOf(PropTypes.string).isRequired,
+    prix:PropTypes.number.isRequired,
+    kilométrage:PropTypes.number.isRequired,
+
+  })
 }

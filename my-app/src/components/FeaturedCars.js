@@ -12,7 +12,7 @@ export default class FeaturedCars extends Component {
     let { loading, featuredCars: cars } = this.context;
 
     cars = cars.map(car => {
-      console.log(car)
+      // console.log(car)
 
       return <Car key={car.id} car={car} />;
     });
