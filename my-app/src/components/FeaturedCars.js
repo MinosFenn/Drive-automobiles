@@ -11,19 +11,19 @@ export default class FeaturedCars extends Component {
   render() {
     let { loading, featuredCars: cars } = this.context;
 
-    cars = cars.map(car => {
+    cars = cars.map((car) => {
       // console.log(car)
 
       return <Car key={car.id} car={car} />;
     });
 
     return (
-      <section className="featured-rooms">
+      <section className="featured-cars">
         <Title title="Notre sélection" />
-        <div className="featured-rooms-center">
+        <div className="featured-cars-center">
           {loading ? <Loading /> : cars}
         </div>{" "}
-        </section>
+      </section>
     );
   }
 }

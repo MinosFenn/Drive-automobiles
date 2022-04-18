@@ -3,18 +3,44 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+img {
+  width:100%;
+  height:auto;
+}
+/* #003366 #262626*/
 :root {
-  --primaryColor: #003366;
+  --primaryColor: #0f0f0f ;
   --mainWhite: #fff;
   --offWhite: #f7f7f7;
-  --mainBlack: #222;
+  --mainBlack: rgb(32, 32, 32);
   --mainGrey: #ececec;
   --darkGrey: #e5e5e5;
   --hardGrey: 	#A9A9A9;
-  --mainTransition: all 0.3s linear;
+  --mainTransition: all 1s ease-in-out;
   --mainSpacing: 3px;
   --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
   --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--mainWhite); 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--mainBlack); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primaryColor); 
 }
 /* globals */
 body {
@@ -54,6 +80,26 @@ h6 {
   margin-bottom: 1.5em;
 }
 
+.white-text {
+  color:var(--darkGrey)
+}
+.btn-price {float: right;
+  text-decoration: none;
+  letter-spacing: var(--mainSpacing);
+  color: var(--offWhite);
+  background: var(--primaryColor);
+  border: 3px solid var(--primaryColor);
+  transition: var(--mainTransition);
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-price:hover {
+  background: transparent;
+  color: var(--primaryColor);
+} 
+
 .btn-primary {
   display: inline-block;
   text-decoration: none;
@@ -65,29 +111,52 @@ h6 {
   transition: var(--mainTransition);
   text-transform: uppercase;
   cursor: pointer;
+  border-radius: 5px;
 }
 .btn-primary:hover {
   background: transparent;
-  color: var(--offWhite);
+  color: var(--primaryColor);
 }
-.btn-cta {
+
+.btn-video {
+  left: 3%;
+    bottom: 8%;
+  position: absolute;
   display: inline-block;
-  width: 100%;
+  text-decoration: none;
+  letter-spacing: var(--mainSpacing);
+  color: var(--offWhite);
+  background: var(--primaryColor);
+  padding: 0.4rem 0.9rem;
+  margin: 30px 0;
+border-radius: 5px;
+  border: 3px solid var(--darkGrey);
+  transition: var(--mainTransition);
+  text-transform: uppercase;
+  cursor: pointer;}
+
+.btn-cta {
+  display: block;
+  width: 90%;
+  margin: auto;
   text-align: center;
 
   text-decoration: none;
   letter-spacing: var(--mainSpacing);
-  color: var(--offWhite);
-  background: #66001a;
+  color: var(--mainBlack);
+  background: #ffffff;
   padding: 0.4rem 0.9rem;
-  border: #66001a 3px solid ;
+  border: var(--mainBlack) 3px solid ;
   transition: var(--mainTransition);
   text-transform: uppercase;
   cursor: pointer;
+  border-radius: 5px;
 }
 .btn-cta:hover {
   background: transparent;
-  color: #66001a;
+  color: #ffffff;
+  border: var(--mainWhite) 3px solid ;
+
 }
 .loading {
   text-transform: capitalize;
@@ -105,6 +174,37 @@ h6 {
   margin: 2rem 0;
   padding: 1rem;
   letter-spacing: var(--mainSpacing);
+}
+
+#prixdsc {
+  -webkit-appearance: none;
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 9px 9px 9px 5px;
+  margin: 20px 0px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+}
+
+#prixdsc:active, #prixdsc:checked:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+#prixdsc:checked {
+	background-color: #e9ecee;
+	border: 1px solid #adb8c0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: #99a1a7;
+}
+#prixdsc:checked:after {
+	content: '\2714';
+	font-size: 14px;
+	position: absolute;
+	top: 0px;
+	left: 3px;
+	color: #99a1a7;
 }
 /* end of globals */
 /* Navbar */
@@ -155,19 +255,19 @@ h6 {
 .show-nav {
   height: 100%;
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1170px) {
   .nav-btn {
     display: none;
   }
   .nav-center {
-    max-width: 1170px;
+    max-width: 1440px;
     margin: 0 auto;
     display: flex;
   }
   .nav-links {
     height: auto;
     display: flex;
-    margin-left: 4rem;
+    margin-left: auto;
   }
   .nav-links a {
     margin: 0 1rem;
@@ -179,57 +279,167 @@ h6 {
 .defaultHero,
 .carsHero {
   min-height: calc(100vh - 66px);
-  background: url("./images/porsche911banner.jpg") center/cover no-repeat;
+  background: url("./images/IMG_9358.jpg") center/cover no-repeat;
   display: flex;
-  align-items: center;
+  align-items: top;
   justify-content: center;
+  position: relative;
 }
-.carsHero {
-  background-image: url("./images/bmw-m5.jpg");
-  min-height: 60vh;
+.carsHero1 {
+  background-image: url("./images/stock.jpg");
+  position: relative;
+  vertical-align: bottom;
+  background-position: bottom;
+  background-size: cover;
+  min-height: calc(100vh - 66px);
+  display: flex;
+  background-repeat: no-repeat;
+  justify-content: center;
+
+  /* min-height: 60vh; */
 }
 .carsHero2 {
-  background-image: url("./images/FerrariF430.jpg");
-  min-height: 60vh;
+  background-image: url("./images/Drive-front.jpg");
+  position: relative;
+  vertical-align: top;
+  background-position: top;
+  background-size: cover;
+  height: 100%;
+  display: flex;
+  background-repeat: no-repeat;
+  justify-content: center;
+}
+
+.carsHero3 {
+  background-image: url("./images/vendu.jpg");
+  position: relative;
+  vertical-align: bottom;
+  background-position: bottom;
+  background-size: cover;
+
+  min-height: calc(100vh - 66px);
+  width:100vw;
+  display: flex;
+  background-repeat: no-repeat;
+
+  justify-content: center;
 }
 /* End of Hero */
 /* Banner */
+
+.banner-bg {
+  left: 0;
+  bottom: 0;
+  height: 100vh;
+  width: -webkit-fill-available;
+  position: absolute;
+display: inline-block;
+background: linear-gradient( rgba(255, 255, 255, 0) 50%, rgb(15, 15, 15) 90%);
+}
 .banner {
+  left: 0;
+    bottom: 0;
+    height: 100vh;
+    width: -webkit-fill-available;
+    position: absolute;
   display: inline-block;
-  background: rgba(0, 0, 0, 0.5);
+  /* background: linear-gradient( rgba(255, 255, 255, 0) 50%, rgb(15, 15, 15) 90%); */
   color: var(--mainWhite);
-  padding: 2rem 1rem;
-  text-align: center;
-  text-transform: capitalize;
+  /* padding: 65% 2rem; */
+
+  /* text-align: center; */
+  /* text-transform: capitalize; */
   letter-spacing: var(--mainSpacing);
 }
 .banner h1 {
+  position: absolute;
+  left:3%;
+  bottom: 5%;
+  padding: 2rem auto;
   font-size: 2.5rem;
 }
 .banner div {
+  position: absolute;
+  left:3%;
+  bottom: 3%;
   width: 10rem;
   height: 5px;
-  background: var(--primaryColor);
-  margin: 1.7rem auto;
+  background: var(--darkGrey);
+  margin: 2rem auto;
 }
 .banner p {
+  position: absolute;
+  left:3%;
+  bottom: 2%;
+  padding: 2rem auto;
+
   font-size: 1.2rem;
-  margin-bottom: 2rem;
 }
-@media screen and (min-width: 576px) {
-  .banner {
-    padding: 2rem 3rem;
-  }
+
+.banner img {
+margin:30%;
+}
+
+.home-container {
+  position: relative;
+  max-width:900px;
+}
+
+.container {
+  position: relative;
+height: auto;   
+ overflow: hidden;
+  /* margin-bottom: 500px; */
+}
+
+.grid-container {
+  display: grid;
+
+  grid-template-columns: 1fr;
+}
+
+.item1 {
+}
+
+.item2 {
+  padding:5% 10%;
+  background-color: var(--primaryColor);
+}
+
+@media screen and (max-width: 1200px) {
   .banner h1 {
-    font-size: 3rem;
+    position: absolute;
+    left:3%;
+    bottom: 10%;
+    padding: 2rem auto;
+    font-size: 2.5rem;
+  }
+  .banner div {
+    left:3%;
+    bottom: 6%;
+
+  }
+  .banner p {
+    position: absolute;
+    left:3%;
+    bottom: 2%;
+    padding: 2rem auto;
+  
+    font-size: 1.2rem;
   }
 }
 @media screen and (min-width: 992px) {
   .banner {
-    padding: 2rem 6rem;
+    /* padding: 15% 2rem; */
+
+    /* padding: 30rem 6rem; */
   }
   .banner h1 {
+ 
     font-size: 4rem;
+  }
+  .grid-container {  
+    grid-template-columns: 1fr  1fr;
   }
 }
 /* End of Banner */
@@ -241,7 +451,7 @@ h6 {
 .section-title h4 {
   font-size: 2rem;
   letter-spacing: var(--mainSpacing);
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   margin-bottom: 1rem;
 }
 .section-title div {
@@ -294,12 +504,280 @@ h6 {
   }
 }
 /*end of services */
-/* featured rooms */
+/* Nos Services */
+.nos-services {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 50px;
+}
 
-.featured-rooms {
+.column-services{
+
+  width:100%;
+  height: 100%;
+  background-color: #66001a;
+  color:white;
+}
+.content {
+
+
+}
+
+.content-bg {
+position: sticky;
+    /* top: 0; */
+    left: 0;
+    bottom: 0;
+    width: auto;
+    background-image: url(./images/test4.png);
+    height: 98VH;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 1;
+    overflow-y: hidden;
+	max-height: 100%; 
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+.content-bg:hover{
+  -webkit-transform: scale(0.3);
+  -ms-transform: scale(0.3);
+  transform: scale(0.3);
+
+  opacity: 0;
+}
+/* End of nos services */
+
+/* Footer */
+.social-links {
+text-decoration: none;
+color:var(--darkGrey);
+background: rgba(255, 255, 255, 0);
+transition: ease-in-out 1s;
+
+}
+
+.flame-hover:hover {
+  -webkit-box-shadow: 4px -4px 15px 0px #FF1F1F, 12px -11px 7px 0px #FF9376, 20px -5px 7px 0px #FFE264, 20px 6px 7px 0px #F6FF33, 13px 12px 17px 0px #FF9527, 2px 17px 17px 0px #FF0000, -9px 21px 18px 0px #FFF212, -9px 6px 11px 0px #FF0808, -11px -9px 11px 0px #FFFA17, -11px -9px 11px 0px #FFFA17, 5px 5px 15px 5px rgba(0,0,0,0); 
+  box-shadow: 4px -4px 15px 0px #FF1F1F, 12px -11px 7px 0px #FF9376, 20px -5px 7px 0px #FFE264, 20px 6px 7px 0px #F6FF33, 13px 12px 17px 0px #FF9527, 2px 17px 17px 0px #FF0000, -9px 21px 18px 0px #FFF212, -9px 6px 11px 0px #FF0808, -11px -9px 11px 0px #FFFA17, -11px -9px 11px 0px #FFFA17, 5px 5px 15px 5px rgba(0,0,0,0);
+  }
+.footer {
+  height: 310px;
+  box-sizing: border-box;
+  /* left: 0; */
+  /* bottom: 0; */
+  padding: 0 300px;
+  background-color: var(--mainBlack);
+}
+.row-footer {
+  background-color: var(--mainBlack);
+  border-top-style: 2px solid white ;
+
+}
+.contact-img-footer {
+width:150px;
+transition: ease-in-out 1s;
+
+}
+
+/* Create three equal columns that floats next to each other */
+.column-footer {
+  float: left;
+  width: 33.33%;
+  padding: 30px 50px 30px 50px;
+  height: 280px; 
+
+  text-align: center;
+  background-color: var(--mainBlack);
+  /* Should be removed. Only for demonstration */
+}
+.bottom-footer {
+  text-align: center;
+  color: white;
+  background-color: var(--mainBlack);
+  border-top-style: 2px solid white ;
+
+}
+
+.column-footer p, h2{
+  color: var(--hardGrey);
+
+}
+.column-footer span {
+  display: inline-block;
+  color: var(--hardGrey);
+  font-size: 2rem;
+  margin: 2rem 0.5rem ;
+}
+
+.column-footer br {
+  padding: 0; 
+  margin: 0;
+}
+/* Clear floats after the columns */
+.row-footer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (max-width: 1440px) {
+  .footer {
+    height: 300px;
+    box-sizing: border-box;
+    /* left: 0; */
+    /* bottom: 0; */
+    padding: 0 0 0 0;
+    background-color: var(--mainBlack);
+  }
+}
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 970px) {
+  .column-footer {
+    width: 100%;
+    padding: 30px 50px 30px 50px;
+
+  }
+}
+/* End footer */
+
+/* Contact page */
+.Google-maps {
+  width: 100%;
+  height: 200px;
+  border:0px; 
+}
+.contact-layout {
+  background-image: url("./images/IMG_9358.jpg");
+height: 100vh;
+background-position: center; /* Center the image */
+background-repeat: no-repeat; /* Do not repeat the image */
+background-size: cover; /* Resize the background image to cover the entire container */
+}
+input, select {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: var(--darkGrey);
+  color: var(--primaryColor);
+}
+.contact-text-label {
+  text-align: left;
+}
+
+textarea {
+  background-color: var(--darkGrey);
+  color:var(--primaryColor);
+  height:auto;
+  width: 80%;
+}
+.contact-img {
+  width:200px;
+}
+.contact-page h2 {
+  margin: 10px;
+
+}
+.contact-page {
+  width: 75vw;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 50px;
+  grid-template-columns: 1fr 1fr;
+  margin: 0rem auto;
+  padding: 2rem;
+
+}
+
+.submit-btn, .btn-contact {
+  display: inline-block;
+  width: 80%;
+  justify-content: space-between;
+  text-align: center;
+border-radius: 5px;
+  text-decoration: none;
+  letter-spacing: var(--mainSpacing);
+  color: var(--offWhite);
+  background: var(--primaryColor);
+  padding: 0.4rem 0.9rem;
+  border: var(--primaryColor) 3px solid ;
+  transition: var(--mainTransition);
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 1rem
+}
+.submit-btn:hover, .btn-contact:hover {
+  background: transparent;
+  color: var(--primaryColor);
+}
+
+
+
+.left-column {
+  width:100%;
+  align-items: center;
+  text-align: center;
+  background-color:var(--offWhite);
+  box-shadow: 1px 1px 5px #0000004d;
+  vertical-align: middle;
+padding: 20px 0 0 0;
+}
+
+.right-column {
+  width:100%;
+  background-color: var(--offWhite);
+  box-shadow: 1px 1px 5px #0000003f;
+  padding: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .contact-page {
+    width: 100vw;
+    grid-template-columns: 1fr;
+    margin: 0rem auto;
+    padding: 2rem;
+  
+  }
+  .contact-layout {
+    height: 100%;
+  }
+
+}
+
+@media screen and (min-width: 2200px) {
+
+  .right-column {
+    margin: auto;
+padding: auto 5%;
+  }
+  /* .left-column {
+
+    margin: auto;
+height: none;
+padding: auto 5%;
+  } */
+
+  
+}
+
+/* End of contact */
+/* featured cars */
+
+.featured-cars {
   padding: 5rem 0;
 }
-.featured-rooms-center {
+.featured-cars-center {
   width: 80vw;
   margin: 0 auto;
   display: grid;
@@ -308,164 +786,238 @@ h6 {
   grid-column-gap: 40px;
 }
 @media screen and (min-width: 776px) {
-  .featured-rooms-center {
+  .featured-cars-center {
     width: 90vw;
     grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
   }
 }
 @media screen and (min-width: 992px) {
-  .featured-rooms-center {
+  .featured-cars-center {
     width: 95vw;
     max-width: 1170px;
   }
 }
-/* end pf featured rooms */
-/* room */
-.room {
-  /* box-shadow: var(--lightShadow); */
-  transition: var(--mainTransition);
+/* end of featured cars */
+
+/* car */
+
+.hidden {
+  display: none;
 }
-.room:hover {
+
+.car {
+  /* box-shadow: var(--lightShadow); */
+  transition: box-shadow 2s ease-in-out;
+  border-radius: 10px;
+  /* border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem; */
+
+}
+.car:hover {
+  border-radius: 10px;
   box-shadow: var(--lightShadow);
+}
+
+.car-container {
+  border: 3px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+
 }
 
 .img-container {
   position: relative;
+  overflow: hidden;
+
 }
+
+
+
 .img-container img {
+  transform-origin: 50% 65%;
+  transition: transform 3s, filter 3s ease-in-out;
+  filter: brightness(100%);
   width: 100%;
   display: block;
-  transition: var(--mainTransition);
 }
+
+.img-container:hover img {
+  filter: brightness(65%);
+  transform: scale(2.5);
+}
+
+
 .name-top {
-  position: absolute;
-width: 100%;
-  top: 0;
-  left: 0;
+z-index:1;
   background:  var(--primaryColor);
   color: var(--mainWhite);
   padding: 0.5rem 0.3rem 0.5rem 0.3rem;
-  border-bottom-right-radius: 1rem;
-  border-bottom-left-radius: 1rem;
-
-  font-size: 1.1rem;
+border-top: 2px solid #ffffff;
+border-bottom:2px solid #000000;
+  font-size: 1rem;
   text-align: center;
   transition: var(--mainTransition);
 }
-.km-bottom {
-  float: left;
-  width: 50%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: rgb(229,229,229, 0.8)
+.info-bottom {
+
+
+  background: var(--primaryColor)
   ;
-  color: var(--hardGrey);
+  color: var(--mainWhite);
   padding: 0.3rem 0.6rem 0.5rem;
   /* border-bottom-right-radius: 1rem; */
-  border-right: 2px solid var(--hardGrey);
   font-size: 0.5rem;
-  text-align: center;
   transition: var(--mainTransition);
 }
 
-.price-bottom {
-  position: absolute;
-  float: left;
-  width: 50%;
-  bottom: 0;
-  right: 0;
-  background:  rgb(229,229,229, 0.8);
-  color: var(--hardGrey);
-  padding: 0.3rem 0.6rem 0.5rem;
-  /* border-bottom-right-radius: 1rem; */
-  font-size: 0.5rem;
-  text-align: center;
-  transition: var(--mainTransition);
-}
+
 .name-top, .price-bottom, .km-bottom, h6 {
   margin-bottom: 0;
   font-size: 1.1rem;
   font-weight: 300;
   letter-spacing: var(--mainSpacing);
 }
-.room-link {
+.car-link {
   position: absolute;
-  top: 50%;
+  top: 25%;
   left: 50%;
-  transform: scale(0);
-  transition: all 0.3s linear;
+  border-radius:5px;
+  transform: translate(-50%, 250%) scale(1);
+  transition:  2s ease-in-out;
 }
 .img-container:hover {
+  background: linear-gradient(rgba(95, 95, 95, 0.24), rgb(0, 0, 0));
 
 }
-.img-container:hover img {
-  /* opacity: 0.3; */
-}
+
 .img-container:hover .km-bottom {
   opacity: 0;
 }
 .img-container:hover .price-bottom {
   opacity: 0;
 }
-.img-container:hover .room-link {
+.img-container:hover .car-link {
   cursor: pointer ;
-
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, 100%) scale(1.5);
 }
-.room-info {
-  background: var(--darkGrey);
-  text-transform: capitalize;
+.car-info {
+  background: var(--mainBlack);
+  /* text-transform: capitalize; */
   padding: 0.5rem 0;
   text-align: center;
   font-weight: 700;
   letter-spacing: var(--mainSpacing);
 }
-/* end of room  */
-/* single room*/
+/* end of car  */
+/* single car*/
 
-.single-room {
-  padding: 5rem 0 0 0;
+.single-car {
+  width: 70%;
+  margin: 1rem auto;
+  padding-bottom: 20px;
+  border-radius: 5px;
+
+  background-color: var(--mainBlack);
 }
-.single-room-images {
-  width: 80vw;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  grid-row-gap: 2rem;
-  grid-column-gap: 50px;
+
+.single-car h2 {
+  color: var(--mainWhite);
+  padding:1rem 4rem;
+  margin-bottom: 0px;
 }
-.single-room-images img {
+
+.title-single-car {
+width:70%;
+padding: 3rem 0 0 0;
+
+margin:auto;
+}
+
+.single-car-images {
+cursor:zoom-in;
+  overflow-x: scroll;
+	scroll-snap-type: x mandatory;
+    display: flex;
+    position: relative;
+    /* flex-wrap: wrap; */
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: center; */
+    /* scroll-snap-type: x mandatory; */
+    margin: auto;
+}
+.big-image {
   width: 100%;
-  display: block;
+  height:auto;
 }
-.single-room-info {
-  width: 95vw;
+.single-car-images img {
+  width: 30%;
+  margin: 10px;
+  display: block;
+  position: relative;
+}
+.single-car-info {
+  width: 90%;
   display: grid;
   grid-template-columns: 1fr;
-  margin: 2rem auto;
-  background-color: var(--offWhite);
+  margin: 0rem auto;
+  box-shadow: 1px 1px 2px #00000044;
+border-radius: 5px;
+  background-color: white;
 }
 .desc
  {
    padding: 3rem;
   margin: 1rem 0;
 }
+
+ul.details li {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 30px;
+  /* text-transform: uppercase; */
+  margin-bottom: 6px;
+  display: block;
+  text-align: left;
+}
+ul .details {
+  text-align: left;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+}
+ul.details li .title {
+  display: inline-block;
+}
+.value {
+  float: right;
+    font-weight: 600;
+    color: #0c121c;
+}
 .info {
-  margin: 1rem 5rem 1rem 5rem;
-  padding: 2rem 0;
-    color: white;
-  background-color: #003366;
-border-radius: 10px;
-  box-shadow:         inset 0 0 10px #000000;
+  width:90%;
+  margin: auto;
+  padding: 2rem 4rem;
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: inset 0 0 1px #00000091;
   align-items: center;
   text-align: center;
+  transition: 1s ease-in-out;
+}
+
+.info:hover {
+
+  /* border-radius: 10px; */
+  box-shadow: inset 0 2px 5px #00000098;
 }
 .info p {
 
 }
 .desc h3 {
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   letter-spacing: var(--mainSpacing);
 }
 .desc p {
@@ -473,83 +1025,138 @@ border-radius: 10px;
 }
 .info h3,
 .info h6 {
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   letter-spacing: var(--mainSpacing);
 }
 
 .info h6 {
   font-weight: 300;
 }
-.room-extras {
-  width: 80vw;
-  margin: 0 auto 3rem auto;
+.car-extras {
+  width: 90%;
+  padding: 2rem;
+  margin:  1rem auto;
+  background-color: var(--offWhite);
+  border-radius:5px;
+
 }
-.room-extras h6 {
-  text-transform: capitalize;
+.car-extras h6 {
+  /* text-transform: capitalize; */
   letter-spacing: var(--mainSpacing);
   font-weight: 600;
   padding-bottom: 2rem;
 
 }
 .cta {
-  margin: auto;
+  margin: 20px auto;
 }
 .extras {
   list-style-type: none;
-  display: grid;
+  display: inline;
   grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
   grid-column-gap: 2rem;
   grid-row-gap: 1rem;
 padding-bottom: 2rem;
 margin-bottom: 0.5rem;;
-
-  border-bottom: #003366 solid 3px;
+  border-bottom: var(--mainBlack) solid 3px;
 }
 
+.extras p {
+  margin-bottom:10px;
+}
+.extras hr {
+  margin: 15px 0;;
+  /* visibility: hidden; */
+}
+.extras ul {
+  margin-top: 10px;;
+}
+.extras ul>li {
+margin-left: 25px;
+}
 
-@media screen and (min-width: 992px) {
-  .single-room-images,
-  .single-room-info,
-  .room-extras {
-    width: 95vw;
-    max-width: 1170px;
+@media screen and (max-width: 1440px) {
+
+  .desc {
+    padding: 1rem 2rem;
   }
-  .single-room-info {
+  .info {
+    margin-bottom: 1rem;
+    padding: 2rem 1rem;
+
+}
+}
+@media screen and (max-width: 860px) {
+.single-car {
+  width: 100%;
+  /* margin: auto; */
+}
+  .desc {
+    padding: 1rem 2rem;
+    width:90vw;
+
+  }
+  .info {
+    margin: 1rem auto;
+    padding: 2rem 1rem;
+
+}
+}
+@media screen and (min-width: 1400px) {
+  .single-car-images,
+  .single-car-info,
+  .car-extras {
+    width: 90%;
+
+    /* max-width: 1400px; */
+  }
+  .single-car-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 2rem;
   }
   /* .info {
     padding-left: 3rem;
   } */
 }
-/* end of single room*/
-/* roomlist */
-.roomslist {
+/* end of single car*/
+/* carlist */
+.carslist {
   padding: 5rem 0;
 }
-.roomslist-center {
+
+@media screen and (min-width: 860px) {
+.carslist-center {
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+
+}
+
+.carslist-center .car-link {
+  top: 35%;
+}
+}
+
+.carslist-center {
   width: 80vw;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-row-gap: 2rem;
   grid-column-gap: 30px;
 }
 
 @media screen and (min-width: 776px) {
-  .roomslist-center {
+  .carslist-center {
     width: 90vw;
   }
 }
 @media screen and (min-width: 992px) {
-  .roomslist-center {
+  .carslist-center {
     width: 95vw;
     max-width: 1170px;
   }
 }
-/* end of roomlist */
-/*  rooms fitler*/
+/* end of carlist */
+/*  cars fitler*/
 .filter-container {
   padding: 5rem 0;
 }
@@ -562,7 +1169,7 @@ margin-bottom: 0.5rem;;
   grid-column-gap: 40px;
 }
 .form-group {
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 }
 .form-group label {
   display: block;
@@ -600,4 +1207,4 @@ margin-bottom: 0.5rem;;
     max-width: 1170px;
   }
 }
-/* end of rooms fitler*/
+/* end of cars fitler*/

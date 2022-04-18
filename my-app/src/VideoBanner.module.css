@@ -1,0 +1,91 @@
+.Container {
+    position: relative;
+height: 100%;   
+margin: auto;
+overflow: hidden;
+
+    /* margin-bottom: 500px; */
+}
+
+/* Style the video: 100% width and height to cover the entire window */
+.Video {
+    width: auto;
+    height: 90vh;
+   }
+
+   @media screen and (min-width: 992px) {
+
+   .Video {
+    width: auto;
+    min-height: calc(100vh - 66px);
+   }
+  }
+
+  /* Add some content at the bottom of the video/page */
+  .Content {
+    position: absolute;
+    top: 0;
+    color:#f1f1f1;
+    width: 100%;
+    min-height: calc(100vh - 66px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient( rgba(255, 255, 255, 0) 50%, rgb(15, 15, 15) 90%);
+
+    /* padding: 20px 20px; */
+  }
+.Divider {
+
+    width: 10rem;
+    height: 5px;
+    background: var(--primaryColor);
+    margin: 2rem auto;
+}
+  .SubContent {
+      text-align: center;
+      padding: 10px;
+      position: absolute;
+    bottom: 20px;
+    }
+  .SubContent h2 {
+    color: var(--darkGrey);
+
+  }
+
+  .SubContent a {
+    color: var(--darkGrey);
+    font-size: 1.3rem;
+text-decoration: none;
+}
+
+  .VideoButton {
+  display: inline-block;
+  text-decoration: none;
+  letter-spacing: var(--mainSpacing);
+  color: var(--offWhite);
+  background: var(--primaryColor);
+  padding: 0.4rem 0.9rem;
+  margin: 10px 0;
+border-radius: 5px;
+  border: 3px solid var(--darkGrey);
+  transition: var(--mainTransition);
+  text-transform: uppercase;
+  cursor: pointer;
+  }
+
+  .SubContent button:hover {
+      background-color: #f1f1f100;
+      color: #ffffffc0;
+  }
+
+  .SubContent img {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+    /* margin: 45vh auto; */
+    /* border: #f1f1f1 1px solid; */
+  }

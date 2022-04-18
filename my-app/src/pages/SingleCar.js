@@ -5,7 +5,10 @@ import Banner from "../components/Banner";
 import { Link } from "react-router-dom";
 import { CarContext } from "../Context";
 import StyledHero from "../components/StyledHero";
-
+import { SRLWrapper } from "simple-react-lightbox";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 // import Car from '../components/Car'
 // import Car from '../components/Car'
 
@@ -17,6 +20,9 @@ export default class SingleCar extends Component {
       slug: this.props.match.params.slug,
       defaultBcg,
     };
+  }
+  componentDidMount() {
+    Aos.init();
   }
   static contextType = CarContext;
 
@@ -39,76 +45,163 @@ export default class SingleCar extends Component {
     const {
       nom,
       description,
+      richdescription,
       marque,
-      modèle,
+      modle,
       prix,
-      année,
-      kilométrage,
+      anne,
+      kilomtrage,
       boite,
       type,
       puissance,
       moteur,
-      cylindré,
+      cylindr,
       couleur,
       place,
       extras,
       images,
     } = car;
     console.log(car);
+    // console.log(car.richdescription.json);
+
+    const euro = new Intl.NumberFormat("fr-FR", {
+      style: "currency",
+      currency: "EUR",
+      minimumFractionDigits: 2,
+    });
+
+    const km = new Intl.NumberFormat("fr-FR", {
+      style: "unit",
+      unit: "kilometer",
+    });
+    // Select the first div
+    // Select div
+    console.log(car.soldcars);
     return (
       <>
-        <StyledHero img={images[0]}>
-          <Banner title={`${nom}`}>
-            <Link to="/cars" className="btn-primary">
-              revenir à la liste de voitures
-            </Link>
-          </Banner>
-        </StyledHero>
-        <section className="single-room">
-          <div className="single-room-info">
-          <article className="desc">
-          <h3>Détails</h3>
-              <p>{description}</p>
-          </article>
-          <article className="info">
-          <h3>Informations</h3>
-          
-              <h6>      Marque: {marque}</h6>
-      <h6>Modèle: {modèle}</h6>
-      <h6>Prix: {prix} €</h6>
-      <h6>Année: {année}</h6>
-      <h6>Kilométrage: {kilométrage} KM</h6>
-      <h6>Boite de vitesse: {boite}</h6>
-      <h6>Type: {type}</h6>
-      <h6>Puissance: {puissance}</h6>
-      <h6>Moteur: {moteur}</h6>
-      <h6>Cylindrée: {cylindré}</h6>
-      <h6>Couleur: {couleur}</h6>
-      <h6>Nb de places: {place > 1 ? `${place} places` : `${place} place`}</h6>
-          </article>
-          </div>
-        </section>
-        <section className="room-extras">
-        <h6>Autres informations sur le véhicule:</h6>
-        <ul className="extras">
-            {extras.map((item,index)=>{
-                return <li key={index}>• {item}</li>
-            })}
-        </ul>
-        <section className="cta">
-        <Link to="/contact" className="btn-cta">
-              Nous contacter à propos de ce véhicule
-            </Link>
+        {" "}
+        <SRLWrapper>
+          <section data-aos="fade-right" className="title-single-car">
+            {car.soldcars ? (
+              <Link
+                // data-aos="fade-left"
+                to="/sold"
+                className="btn-primary"
+              >
+                revenir à la liste de voitures
+              </Link>
+            ) : (
+              <Link to="/cars" className="btn-primary">
+                revenir à la liste de voitures
+              </Link>
+            )}
+          </section>
+
+          <section data-aos="zoom-in-down" className="single-car">
+            <h2>{nom}</h2>
+
+            <div data-aos="fade-up" className="single-car-info">
+              <article className="desc">
+                <img src={images[0]} alt="" className="big-image" />
+                <div className="single-car-images">
+                  {images.map((item, index) => {
+                    return <img key={index} src={item} alt={nom} />;
+                  })}
+                </div>{" "}
+              </article>
+              <article className="info">
+                <h3>Informations</h3>
+                <ul className="details">
+                  <li>
+                    {" "}
+                    <span className="title">Marque:</span>{" "}
+                    <span className="value">{marque}</span>
+                  </li>
+                  <li>
+                    <span className="title">Modèle:</span>{" "}
+                    <span className="value">{modle}</span>
+                  </li>
+                  <div className={`${car.soldcars ? "hidden" : "shown"}`}>
+                    <li>
+                      <span
+                        className={`title ${
+                          this.props.soldcars ? "hidden" : "shown"
+                        }`}
+                      >
+                        Prix:
+                      </span>{" "}
+                      <span
+                        data-aos="fade-left"
+                        className={`value ${
+                          this.props.soldcars ? "hidden" : "shown"
+                        }`}
+                      >
+                        {" "}
+                        {car.soldcars ? "sur demande" : euro.format(prix)}
+                      </span>
+                    </li>
+                  </div>
+                  <li>
+                    <span className="title">Année:</span>{" "}
+                    <span className="value">{anne}</span>
+                  </li>
+                  <li>
+                    <span className="title">Kilométrage:</span>{" "}
+                    <span className="value">{km.format(kilomtrage)}</span>
+                  </li>
+                  <li>
+                    <span className="title">Boite de vitesse:</span>{" "}
+                    <span className="value">{boite}</span>
+                  </li>
+                  <li>
+                    <span className="title">Type:</span>{" "}
+                    <span className="value">{type}</span>
+                  </li>
+                  <li>
+                    <span className="title">Puissance:</span>{" "}
+                    <span className="value">{puissance} CH</span>
+                  </li>
+                  <li>
+                    <span className="title">Moteur:</span>{" "}
+                    <span className="value">{moteur}</span>
+                  </li>
+                  <li>
+                    <span className="title">Cylindrée:</span>{" "}
+                    <span className="value">{cylindr}</span>
+                  </li>
+                  <li>
+                    <span className="title">Couleur:</span>{" "}
+                    <span className="value">{couleur}</span>
+                  </li>
+                  <li>
+                    <span className="title">Nb de places:</span>{" "}
+                    <span className="value">
+                      {place > 1 ? `${place} places` : `${place} place`}
+                    </span>
+                  </li>
+                </ul>{" "}
+              </article>
+            </div>
+            <section data-aos="fade-right" className="cta">
+              <Link to="/contact" className="btn-cta">
+                Nous contacter à propos de ce véhicule
+              </Link>
             </section>
-        </section>
-
-        <div className="single-room-images">
-            {images.map((item, index) => {
-              return <img key={index} src={item} alt={nom} />;
-            })}
-
-          </div>
-
+            <section
+              data-aos="fade-down"
+              data-aos-duration="4000"
+              className="car-extras"
+            >
+              <h6>Autres informations sur le véhicule:</h6>
+              <div className="extras">
+                {documentToReactComponents(richdescription)}
+                {/* {extras.map((item, index) => {
+                  return <li key={index}>• {item}</li>;
+                })} */}
+              </div>
+            </section>
+          </section>
+        </SRLWrapper>
       </>
     );
   }
